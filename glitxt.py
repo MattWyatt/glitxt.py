@@ -14,7 +14,7 @@ def encode_in_image(message):
 		index = 1000;
 		# the skip is the ratio of the remaining bytes
 		# in the image to the lenght of the message
-		skip = round((len(raw) - index) / len(message))
+		skip = round((len(raw)-1 - index) / len(message))
 		# print("skip is [{}]".format(skip))
 		for iterator in range(0, len(message)):
 			index = 1000 + (iterator*skip)
@@ -45,7 +45,7 @@ def decode_from_image(filepath):
 		locations = []
 		final = ""
 		index = 1000;
-		skip = round((len(raw) - index) / (nchars*0.9))
+		skip = round((len(raw) - index) / nchars)
 		# print("skip is [{}]".format(skip))
 		for iterator in range(0, nchars):
 			index = 1000 + (iterator*skip)
