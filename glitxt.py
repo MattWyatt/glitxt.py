@@ -12,7 +12,9 @@ def encode_in_image(message):
 		raw = f.read()
 		locations = {}
 		index = 1000;
-		skip = round((len(raw) - index) / (len(message)*0.9))
+		# the skip is the ratio of the remaining bytes
+		# in the image to the lenght of the message
+		skip = round((len(raw) - index) / len(message))
 		# print("skip is [{}]".format(skip))
 		for iterator in range(0, len(message)):
 			index = 1000 + (iterator*skip)
